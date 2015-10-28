@@ -17,20 +17,12 @@ $scope.$storage = $localStorage.$default({
 	{id:6, fName:'Corinne',lName:"Pan", times:1, country:"UK" }
 	]
 });
-/*
-$scope.users = [
-{id:1, fName:'Hege', lName:"Pege", times:4, country:"Sweden" },
-{id:2, fName:'Kim',  lName:"Pim", times:5, country:"Korea" },
-{id:3, fName:'Sal',  lName:"Smith", times:8, country:"USA" },
-{id:4, fName:'Jack', lName:"Jones", times:0, country:"UK" },
-{id:5, fName:'John', lName:"Doe", times:0, country:"USA" },
-{id:6, fName:'Corinne',lName:"Pan", times:1, country:"UK" }
-];
-*/
+
 $scope.edit = true;
 $scope.error = false;
 
 $scope.editUser = function(id) {
+  popup('popUpDiv');
   if (id == 'new') {
     $scope.edit = true;
     $scope.fName = '';
@@ -56,6 +48,7 @@ $scope.deleteUser = function(id) {
 };
 
 $scope.saveUser = function() {
+    popup('popUpDiv');
     $scope.$storage.users[$scope.curEntry].fName = $scope.fName;
     $scope.$storage.users[$scope.curEntry].lName = $scope.lName;
     $scope.$storage.users[$scope.curEntry].times = $scope.times;
@@ -67,6 +60,7 @@ $scope.saveUser = function() {
 };
 
 $scope.newUser = function() {
+  popup('popUpDiv');
   $scope.$storage.users.push({
     id:Object.keys($scope.$storage.users).length+1,
     fName:$scope.fName,
