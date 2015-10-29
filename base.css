@@ -11,13 +11,14 @@
 
 #popUpDiv {
   position: absolute;
-  /*background:url(pop-back.jpg) no-repeat;*/
   background: #fff;
   box-shadow: 10px 10px 5px #111;
-  width: 500px;
-  height: 420px;
+  width: 450px;
+  height: 310px;
   border: 2px solid #000;
-  padding: 10px;
-  /*border-radius: 10px;*/
+  border-radius: 10px;
+  padding-top: 0px;
+  padding-left: 20px;
+  padding-right: 0px;
   z-index: 9002;
 }

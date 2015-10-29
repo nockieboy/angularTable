@@ -45,6 +45,11 @@ $scope.deleteUser = function(id) {
   } else {
     $scope.$storage.users.splice((id-1),1);
   }
+  // Run through the array and renum the ID numbers
+  var arrayLength = $scope.$storage.users.length;
+  for (var i = 0; i < arrayLength; i++) {
+      $scope.$storage.users[i].id = i + 1;
+  }
 };
 
 $scope.saveUser = function() {
@@ -78,6 +83,14 @@ $scope.export = function() {
   $scope.myJsonString = JSON.stringify($scope.$storage.users);
   alert ($scope.myJsonString);
 };
+
+$scope.cancel = function() {
+  popup('popUpDiv');
+  $scope.fName = '';
+  $scope.lName = '';
+  $scope.times = 0;
+  $scope.country = '';
+}
 
 });
 
