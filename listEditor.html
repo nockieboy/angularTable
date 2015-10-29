@@ -21,36 +21,36 @@
     <th width=200>Edit</th>
     <th>
     <a href="#" ng-click="orderByField='id'; reverseSort = !reverseSort">
-          Order<span ng-show="orderByField == 'id'"><img src="asc.png" width="16" height="16" ng-show="!reverseSort"><img src="desc.png" width="16" height="16" ng-show="reverseSort"></span>
+          Order <span ng-show="orderByField == 'id'"><span class="glyphicon glyphicon-sort-by-order" ng-show="!reverseSort"></span><span class="glyphicon glyphicon-sort-by-order-alt" ng-show="reverseSort"></span></span>
     </a>
     </th>
     <th>
     <a href="#" ng-click="orderByField='fName'; reverseSort = !reverseSort">
-          First Name<span ng-show="orderByField == 'fName'"><img src="asc.png" width="16" height="16" ng-show="!reverseSort"><img src="desc.png" width="16" height="16" ng-show="reverseSort"></span>
+          First Name <span ng-show="orderByField == 'fName'"><span class="glyphicon glyphicon-sort-by-alphabet" ng-show="!reverseSort"></span><span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="reverseSort"></span></span>
     </a>
     </th>
     <th>
     <a href="#" ng-click="orderByField='lName'; reverseSort = !reverseSort">
-          Last Name<span ng-show="orderByField == 'lName'"><img src="asc.png" width="16" height="16" ng-show="!reverseSort"><img src="desc.png" width="16" height="16" ng-show="reverseSort"></span>
+          Last Name <span ng-show="orderByField == 'lName'"><span class="glyphicon glyphicon-sort-by-alphabet" ng-show="!reverseSort"></span><span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="reverseSort"></span></span>
     </a>
     </th>
     <th>
     <a href="#" ng-click="orderByField='times'; reverseSort = !reverseSort">
-          Times<span ng-show="orderByField == 'times'"><img src="asc.png" width="16" height="16" ng-show="!reverseSort"><img src="desc.png" width="16" height="16" ng-show="reverseSort"></span>
+          Times <span ng-show="orderByField == 'times'"><span class="glyphicon glyphicon-sort-by-order" ng-show="!reverseSort"></span><span class="glyphicon glyphicon-sort-by-order-alt" ng-show="reverseSort"></span></span>
     </th>
     <th>
     <a href="#" ng-click="orderByField='country'; reverseSort = !reverseSort">
-          Country<span ng-show="orderByField == 'country'"><img src="asc.png" width="16" height="16" ng-show="!reverseSort"><img src="desc.png" width="16" height="16" ng-show="reverseSort"></span>
+          Country <span ng-show="orderByField == 'country'"><span class="glyphicon glyphicon-sort-by-alphabet" ng-show="!reverseSort"></span><span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="reverseSort"></span></span>
     </a>
     </th>
   </tr></thead>
   <tbody><tr ng-repeat="user in $storage.users|orderBy:orderByField:reverseSort">
     <td>
-      <button class="btn" ng-click="editUser(user.id)">
+      <button class="btn btn-info" ng-click="editUser(user.id)">
       <span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Edit
       </button>
-      <button class="btn" ng-click="deleteUser(user.id)">
-      <span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Delete
+      <button class="btn btn-danger" ng-click="deleteUser(user.id)">
+      <span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete
       </button>
     </td>
     <td>{{ user.id }}</td>
