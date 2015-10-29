@@ -18,27 +18,27 @@
 
 <table class="table table-striped">
   <thead><tr>
-    <th width=200>Edit</th>
-    <th>
+    <th width=200 style="text-align:left">Edit</th>
+    <th style="text-align:center">
     <a href="#" ng-click="orderByField='id'; reverseSort = !reverseSort">
           Order <span ng-show="orderByField == 'id'"><span class="glyphicon glyphicon-sort-by-order" ng-show="!reverseSort"></span><span class="glyphicon glyphicon-sort-by-order-alt" ng-show="reverseSort"></span></span>
     </a>
     </th>
-    <th>
+    <th style="text-align:center">
     <a href="#" ng-click="orderByField='fName'; reverseSort = !reverseSort">
           First Name <span ng-show="orderByField == 'fName'"><span class="glyphicon glyphicon-sort-by-alphabet" ng-show="!reverseSort"></span><span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="reverseSort"></span></span>
     </a>
     </th>
-    <th>
+    <th style="text-align:center">
     <a href="#" ng-click="orderByField='lName'; reverseSort = !reverseSort">
           Last Name <span ng-show="orderByField == 'lName'"><span class="glyphicon glyphicon-sort-by-alphabet" ng-show="!reverseSort"></span><span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="reverseSort"></span></span>
     </a>
     </th>
-    <th>
+    <th style="text-align:center">
     <a href="#" ng-click="orderByField='times'; reverseSort = !reverseSort">
           Times <span ng-show="orderByField == 'times'"><span class="glyphicon glyphicon-sort-by-order" ng-show="!reverseSort"></span><span class="glyphicon glyphicon-sort-by-order-alt" ng-show="reverseSort"></span></span>
     </th>
-    <th>
+    <th style="text-align:center">
     <a href="#" ng-click="orderByField='country'; reverseSort = !reverseSort">
           Country <span ng-show="orderByField == 'country'"><span class="glyphicon glyphicon-sort-by-alphabet" ng-show="!reverseSort"></span><span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="reverseSort"></span></span>
     </a>
@@ -53,11 +53,11 @@
       <span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete
       </button>
     </td>
-    <td>{{ user.id }}</td>
-    <td>{{ user.fName }}</td>
-    <td>{{ user.lName }}</td>
-    <td>{{ user.times }}</td>
-    <td>{{ user.country }}</td>
+    <td align="center">{{ user.id }}</td>
+    <td align="center">{{ user.fName }}</td>
+    <td align="center">{{ user.lName }}</td>
+    <td align="center">{{ user.times }}</td>
+    <td align="center">{{ user.country }}</td>
   </tr></tbody>
 </table>
 
@@ -87,7 +87,7 @@
   <div class="form-group">
     <label class="col-sm-3 control-label">Times:</label>
     <div class="col-sm-9">
-      <input type="text" ng-model="times" ng-disabled="false" placeholder="0">
+      <input type="number" ng-model="times" ng-disabled="false" min="0">
     </div>
   </div>
   <div class="form-group">
