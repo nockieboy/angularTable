@@ -6,6 +6,7 @@ $scope.lName = '';
 $scope.times = 0;
 $scope.country = '';
 $scope.curEntry = 0;
+$scope.tempID = -1;
 
 $scope.$storage = $localStorage.$default({
 	users: [
@@ -39,6 +40,20 @@ $scope.editUser = function(id) {
   }
 };
 
+$scope.initDelete = function(id) {
+  $scope.tempID = id;
+  popup('confirmDialogue');
+};
+
+$scope.confirmDelete = function() {
+  if ($scope.tempID > -1) {
+    $scope.deleteUser($scope.tempID);
+    tempID = -1;
+  } else {
+    alert("tempID is not set!");
+  }
+};
+
 $scope.deleteUser = function(id) {
   if ((id-1) == Object.keys($scope.$storage.users).length) {
     $scope.$storage.users.pop();
@@ -50,6 +65,7 @@ $scope.deleteUser = function(id) {
   for (var i = 0; i < arrayLength; i++) {
       $scope.$storage.users[i].id = i + 1;
   }
+  popup('confirmDialogue');
 };
 
 $scope.saveUser = function() {
@@ -90,7 +106,11 @@ $scope.cancel = function() {
   $scope.lName = '';
   $scope.times = 0;
   $scope.country = '';
-}
+};
+
+$scope.cancelDelete = function() {
+  popup('confirmDialogue');
+};
 
 });
 

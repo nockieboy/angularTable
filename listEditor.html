@@ -49,8 +49,8 @@
       <button class="btn btn-info" ng-click="editUser(user.id)">
       <span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Edit
       </button>
-      <button class="btn btn-danger" ng-click="deleteUser(user.id)">
-      <span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete
+      <button class="btn btn-danger" ng-click="initDelete(user.id)">
+      <span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Delete
       </button>
     </td>
     <td align="center">{{ user.id }}</td>
@@ -68,6 +68,17 @@
 <hr>
 
 <div id="blanket" style="display:none"></div>
+
+<div id="confirmDialogue" style="display:none">
+  <h3>Confirm delete?</h3>
+  <button class="btn btn-danger" ng-click="confirmDelete()">
+    <span class="glyphicon glyphicon-trash"></span> Yes
+  </button>
+  <button class="btn btn-success" ng-click="cancelDelete()">
+    <span class="glyphicon glyphicon-remove-circle"></span> No
+  </button>
+</div>
+
 <div id="popUpDiv" style="display:none">
   <h3 ng-show="edit">Create New User</h3>
   <h3 ng-hide="edit">Edit User</h3>
@@ -97,7 +108,6 @@
     </div>
   </div>
   </form>
-
   <hr>
   <button ng-hide="edit" class="btn btn-success" ng-click="saveUser()">
     <span class="glyphicon glyphicon-save"></span> Save Changes

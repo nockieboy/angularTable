@@ -22,3 +22,17 @@
   padding-right: 0px;
   z-index: 9002;
 }
+
+#confirmDialogue {
+  position: absolute;
+  background: #fff;
+  box-shadow: 10px 10px 5px #111;
+  width: 225px;
+  height: 125px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding-top: 0px;
+  padding-left: 20px;
+  padding-right: 0px;
+  z-index: 9002;
+}
