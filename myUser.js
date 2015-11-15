@@ -23,7 +23,7 @@ $scope.edit = true;
 $scope.error = false;
 
 $scope.editUser = function(id) {
-  popup('popUpDiv');
+  MyUser.popup('popUpDiv');
   if (id == 'new') {
     $scope.edit = true;
     $scope.fName = '';
@@ -42,7 +42,7 @@ $scope.editUser = function(id) {
 
 $scope.initDelete = function(id) {
   $scope.tempID = id;
-  popup('confirmDialogue');
+  MyUser.popup('confirmDialogue');
 };
 
 $scope.confirmDelete = function() {
@@ -65,11 +65,11 @@ $scope.deleteUser = function(id) {
   for (var i = 0; i < arrayLength; i++) {
       $scope.$storage.users[i].id = i + 1;
   }
-  popup('confirmDialogue');
+  MyUser.popup('confirmDialogue');
 };
 
 $scope.saveUser = function() {
-    popup('popUpDiv');
+    MyUser.popup('popUpDiv');
     $scope.$storage.users[$scope.curEntry].fName = $scope.fName;
     $scope.$storage.users[$scope.curEntry].lName = $scope.lName;
     $scope.$storage.users[$scope.curEntry].times = $scope.times;
@@ -81,7 +81,7 @@ $scope.saveUser = function() {
 };
 
 $scope.newUser = function() {
-  popup('popUpDiv');
+  MyUser.popup('popUpDiv');
   $scope.$storage.users.push({
     id:Object.keys($scope.$storage.users).length+1,
     fName:$scope.fName,
@@ -101,7 +101,7 @@ $scope.export = function() {
 };
 
 $scope.cancel = function() {
-  popup('popUpDiv');
+  MyUser.popup('popUpDiv');
   $scope.fName = '';
   $scope.lName = '';
   $scope.times = 0;
@@ -109,18 +109,20 @@ $scope.cancel = function() {
 };
 
 $scope.cancelDelete = function() {
-  popup('confirmDialogue');
+  MyUser.popup('confirmDialogue');
 };
 
 });
 
-function toggle(div_id) {
+var MyUser = MyUser || {};
+
+MyUser.toggle = function(div_id) {
     var el = document.getElementById(div_id);
     if ( el.style.display == 'none' ) { el.style.display = 'block';}
     else {el.style.display = 'none';}
 }
 
-function blanket_size(popUpDivVar) {
+MyUser.blanket_size = function(popUpDivVar) {
     var viewportheight = 0;
     var blanket_height = 0;
     if (typeof window.innerWidth != 'undefined') {
@@ -144,7 +146,7 @@ function blanket_size(popUpDivVar) {
     popUpDiv.style.top = popUpDiv_height + 'px';
 }
 
-function window_pos(popUpDivVar) {
+MyUser.window_pos = function (popUpDivVar) {
     var viewportwidth = 0;
     var window_width = 0;
     if (typeof window.innerWidth != 'undefined') {
@@ -166,9 +168,9 @@ function window_pos(popUpDivVar) {
     popUpDiv.style.left = window_width + 'px';
 }
 
-function popup(windowname) {
-    blanket_size(windowname);
-    window_pos(windowname);
-    toggle('blanket');
-    toggle(windowname);   
+MyUser.popup = function(windowname) {
+    MyUser.blanket_size(windowname);
+    MyUser.window_pos(windowname);
+    MyUser.toggle('blanket');
+    MyUser.toggle(windowname);
 }
